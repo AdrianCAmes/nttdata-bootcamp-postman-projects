@@ -1,0 +1,614 @@
+{
+	"info": {
+		"_postman_id": "b636c95a-b417-4b1e-bab6-4a00eac19cd2",
+		"name": "passive-operations-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post new personal account without error",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerId\": \"61dcc588ffb2e3495cb42613\",\r\n    \"accountType\": {\r\n        \"description\": \"Long term\",\r\n        \"maximumNumberOfOperations\": 1,\r\n        \"allowedDayForOperations\": 11\r\n    },\r\n    \"issueDate\": \"2020-01-09\",\r\n    \"dueDate\": \"2026-01-04\",\r\n    \"holders\": [\r\n        {\r\n            \"name\": \"Mario\",\r\n            \"lastname\": \"Araujo\",\r\n            \"identityNumber\": \"88554461\",\r\n            \"address\": {\r\n                \"number\": 144,\r\n                \"street\": \"Jr. Washington\",\r\n                \"city\": \"Lima\",\r\n                \"country\": \"Peru\"\r\n            },\r\n            \"email\": \"String\",\r\n            \"phoneNumber\": \"String\",\r\n            \"mobileNumber\": \"String\",\r\n            \"birthdate\": \"1980-07-11T00:00:00.000+00:00\"\r\n        }\r\n    ],\r\n    \"signers\": [\r\n        {\r\n            \"name\": \"String\",\r\n            \"lastname\": \"String\",\r\n            \"identityNumber\": \"String\",\r\n            \"address\": {\r\n                \"number\": 144,\r\n                \"street\": \"String\",\r\n                \"city\": \"String\",\r\n                \"country\": \"String\"\r\n            },\r\n            \"email\": \"String\",\r\n            \"phoneNumber\": \"String\",\r\n            \"mobileNumber\": \"String\",\r\n            \"birthdate\": \"2000-05-01T00:00:00.000+00:00\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post new personal account with error: personal customers can only have one account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerId\": \"61dcc588ffb2e3495cb42613\",\r\n    \"accountType\": {\r\n        \"description\": \"Savings\",\r\n        \"maximumNumberOfOperations\": 10\r\n    },\r\n    \"issueDate\": \"2020-01-09\",\r\n    \"dueDate\": \"2026-01-04\",\r\n    \"holders\": [\r\n        {\r\n            \"name\": \"Mario\",\r\n            \"lastname\": \"Araujo\",\r\n            \"identityNumber\": \"88554461\",\r\n            \"address\": {\r\n                \"number\": 144,\r\n                \"street\": \"Jr. Washington\",\r\n                \"city\": \"Lima\",\r\n                \"country\": \"Peru\"\r\n            },\r\n            \"email\": \"String\",\r\n            \"phoneNumber\": \"String\",\r\n            \"mobileNumber\": \"String\",\r\n            \"birthdate\": \"1980-07-11T00:00:00.000+00:00\"\r\n        }\r\n    ],\r\n    \"signers\": [\r\n        {\r\n            \"name\": \"String\",\r\n            \"lastname\": \"String\",\r\n            \"identityNumber\": \"String\",\r\n            \"address\": {\r\n                \"number\": 144,\r\n                \"street\": \"String\",\r\n                \"city\": \"String\",\r\n                \"country\": \"String\"\r\n            },\r\n            \"email\": \"String\",\r\n            \"phoneNumber\": \"String\",\r\n            \"mobileNumber\": \"String\",\r\n            \"birthdate\": \"2000-05-01T00:00:00.000+00:00\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post new business account without error",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerId\": \"61dcc8b9ffb2e3495cb42614\",\r\n    \"accountType\": {\r\n        \"description\": \"Current\",\r\n        \"commission\": 12\r\n    },\r\n    \"issueDate\": \"2020-05-13\",\r\n    \"dueDate\": \"2024-05-13\",\r\n    \"holders\": [\r\n        {\r\n            \"name\": \"Mario\",\r\n            \"lastname\": \"Araujo\",\r\n            \"identityNumber\": \"88554461\",\r\n            \"address\": {\r\n                \"number\": 144,\r\n                \"street\": \"Jr. Washington\",\r\n                \"city\": \"Lima\",\r\n                \"country\": \"Peru\"\r\n            },\r\n            \"email\": \"String\",\r\n            \"phoneNumber\": \"String\",\r\n            \"mobileNumber\": \"String\",\r\n            \"birthdate\": \"1980-07-11T00:00:00.000+00:00\"\r\n        }\r\n    ],\r\n    \"signers\": [\r\n        {\r\n            \"name\": \"String\",\r\n            \"lastname\": \"String\",\r\n            \"identityNumber\": \"String\",\r\n            \"address\": {\r\n                \"number\": 144,\r\n                \"street\": \"String\",\r\n                \"city\": \"String\",\r\n                \"country\": \"String\"\r\n            },\r\n            \"email\": \"String\",\r\n            \"phoneNumber\": \"String\",\r\n            \"mobileNumber\": \"String\",\r\n            \"birthdate\": \"2000-05-01T00:00:00.000+00:00\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post new business account with error: business customers can only have current accounts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerId\": \"61dcc8b9ffb2e3495cb42614\",\r\n    \"accountType\": {\r\n        \"description\": \"Savings\",\r\n        \"maximumNumberOfOperations\": 10\r\n    },\r\n    \"issueDate\": \"2022-03-20\",\r\n    \"dueDate\": \"2026-03-20\",\r\n    \"holders\": [\r\n        {\r\n            \"name\": \"Mario\",\r\n            \"lastname\": \"Araujo\",\r\n            \"identityNumber\": \"88554461\",\r\n            \"address\": {\r\n                \"number\": 144,\r\n                \"street\": \"Jr. Washington\",\r\n                \"city\": \"Lima\",\r\n                \"country\": \"Peru\"\r\n            },\r\n            \"email\": \"String\",\r\n            \"phoneNumber\": \"String\",\r\n            \"mobileNumber\": \"String\",\r\n            \"birthdate\": \"1980-07-11T00:00:00.000+00:00\"\r\n        }\r\n    ],\r\n    \"signers\": [\r\n        {\r\n            \"name\": \"String\",\r\n            \"lastname\": \"String\",\r\n            \"identityNumber\": \"String\",\r\n            \"address\": {\r\n                \"number\": 144,\r\n                \"street\": \"String\",\r\n                \"city\": \"String\",\r\n                \"country\": \"String\"\r\n            },\r\n            \"email\": \"String\",\r\n            \"phoneNumber\": \"String\",\r\n            \"mobileNumber\": \"String\",\r\n            \"birthdate\": \"2000-05-01T00:00:00.000+00:00\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post new account with error: customers cannot create accounts when they have locked status",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerId\": \"61dcc8b9ffb2e3495cb42614\",\r\n    \"accountType\": {\r\n        \"description\": \"Current\",\r\n        \"commission\": 20\r\n    },\r\n    \"issueDate\": \"2022-03-20\",\r\n    \"dueDate\": \"2026-03-20\",\r\n    \"holders\": [\r\n        {\r\n            \"name\": \"Mario\",\r\n            \"lastname\": \"Araujo\",\r\n            \"identityNumber\": \"88554461\",\r\n            \"address\": {\r\n                \"number\": 144,\r\n                \"street\": \"Jr. Washington\",\r\n                \"city\": \"Lima\",\r\n                \"country\": \"Peru\"\r\n            },\r\n            \"email\": \"String\",\r\n            \"phoneNumber\": \"String\",\r\n            \"mobileNumber\": \"String\",\r\n            \"birthdate\": \"1980-07-11T00:00:00.000+00:00\"\r\n        }\r\n    ],\r\n    \"signers\": [\r\n        {\r\n            \"name\": \"String\",\r\n            \"lastname\": \"String\",\r\n            \"identityNumber\": \"String\",\r\n            \"address\": {\r\n                \"number\": 144,\r\n                \"street\": \"String\",\r\n                \"city\": \"String\",\r\n                \"country\": \"String\"\r\n            },\r\n            \"email\": \"String\",\r\n            \"phoneNumber\": \"String\",\r\n            \"mobileNumber\": \"String\",\r\n            \"birthdate\": \"2000-05-01T00:00:00.000+00:00\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post new account with error: account does not have holders",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerId\": \"61dcc8b9ffb2e3495cb42614\",\r\n    \"accountType\": {\r\n        \"description\": \"Current\",\r\n        \"commission\": 20\r\n    },\r\n    \"issueDate\": \"2022-03-20\",\r\n    \"dueDate\": \"2026-03-20\",\r\n    \"signers\": [\r\n        {\r\n            \"name\": \"String\",\r\n            \"lastname\": \"String\",\r\n            \"identityNumber\": \"String\",\r\n            \"address\": {\r\n                \"number\": 144,\r\n                \"street\": \"String\",\r\n                \"city\": \"String\",\r\n                \"country\": \"String\"\r\n            },\r\n            \"email\": \"String\",\r\n            \"phoneNumber\": \"String\",\r\n            \"mobileNumber\": \"String\",\r\n            \"birthdate\": \"2000-05-01T00:00:00.000+00:00\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all accounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get account by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts/61dce4b699666502e3b20635",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"61dce4b699666502e3b20635"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put account without error",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"61dce4b699666502e3b20635\",\r\n    \"status\": \"Blocked\",\r\n    \"dueDate\": \"2026-01-04\",\r\n    \"currentBalance\": 0.0,\r\n    \"doneOperationsInMonth\": null,\r\n    \"operations\": null,\r\n    \"holders\": [\r\n        {\r\n            \"name\": \"Mario\",\r\n            \"lastname\": \"Araujo\",\r\n            \"identityNumber\": \"88554461\",\r\n            \"address\": {\r\n                \"number\": 144,\r\n                \"street\": \"Jr. Washington\",\r\n                \"city\": \"Lima\",\r\n                \"country\": \"Peru\"\r\n            },\r\n            \"email\": \"String\",\r\n            \"phoneNumber\": \"String\",\r\n            \"mobileNumber\": \"String\",\r\n            \"birthdate\": \"1980-07-11T00:00:00.000+00:00\"\r\n        }\r\n    ],\r\n    \"signers\": [\r\n        {\r\n            \"name\": \"String\",\r\n            \"lastname\": \"String\",\r\n            \"identityNumber\": \"String\",\r\n            \"address\": {\r\n                \"number\": 144,\r\n                \"street\": \"String\",\r\n                \"city\": \"String\",\r\n                \"country\": \"String\"\r\n            },\r\n            \"email\": \"String\",\r\n            \"phoneNumber\": \"String\",\r\n            \"mobileNumber\": \"String\",\r\n            \"birthdate\": \"2000-05-01T00:00:00.000+00:00\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put account with errors: not found account",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"any-not-existing-id\",\r\n    \"status\": \"Blocked\",\r\n    \"dueDate\": \"2026-01-04\",\r\n    \"currentBalance\": 0.0,\r\n    \"doneOperationsInMonth\": null,\r\n    \"operations\": null,\r\n    \"holders\": [\r\n        {\r\n            \"name\": \"Mario\",\r\n            \"lastname\": \"Araujo\",\r\n            \"identityNumber\": \"88554461\",\r\n            \"address\": {\r\n                \"number\": 144,\r\n                \"street\": \"Jr. Washington\",\r\n                \"city\": \"Lima\",\r\n                \"country\": \"Peru\"\r\n            },\r\n            \"email\": \"String\",\r\n            \"phoneNumber\": \"String\",\r\n            \"mobileNumber\": \"String\",\r\n            \"birthdate\": \"1980-07-11T00:00:00.000+00:00\"\r\n        }\r\n    ],\r\n    \"signers\": [\r\n        {\r\n            \"name\": \"String\",\r\n            \"lastname\": \"String\",\r\n            \"identityNumber\": \"String\",\r\n            \"address\": {\r\n                \"number\": 144,\r\n                \"street\": \"String\",\r\n                \"city\": \"String\",\r\n                \"country\": \"String\"\r\n            },\r\n            \"email\": \"String\",\r\n            \"phoneNumber\": \"String\",\r\n            \"mobileNumber\": \"String\",\r\n            \"birthdate\": \"2000-05-01T00:00:00.000+00:00\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put account with error: account does not have holders",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"61dce4b699666502e3b20635\",\r\n    \"status\": \"Blocked\",\r\n    \"dueDate\": \"2026-01-04\",\r\n    \"currentBalance\": 0.0,\r\n    \"doneOperationsInMonth\": null,\r\n    \"operations\": null,\r\n    \"signers\": [\r\n        {\r\n            \"name\": \"String\",\r\n            \"lastname\": \"String\",\r\n            \"identityNumber\": \"String\",\r\n            \"address\": {\r\n                \"number\": 144,\r\n                \"street\": \"String\",\r\n                \"city\": \"String\",\r\n                \"country\": \"String\"\r\n            },\r\n            \"email\": \"String\",\r\n            \"phoneNumber\": \"String\",\r\n            \"mobileNumber\": \"String\",\r\n            \"birthdate\": \"2000-05-01T00:00:00.000+00:00\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete account without error",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts/61dd176f99666502e3b20638",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"61dd176f99666502e3b20638"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete account with error: account not found",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts/any-not-existing-id",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"any-not-existing-id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get accounts by customer id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/api/v1/customers/61dcc8b9ffb2e3495cb42614/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"61dcc8b9ffb2e3495cb42614",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post do operation without error",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"61dd1bcc99666502e3b2063a\",\r\n    \"operation\": {\r\n        \"type\": \"Deposit\",\r\n        \"amount\": 820.00\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts/operations",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"operations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post do operation with error: account has insufficient funds",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"61dce88199666502e3b20636\",\r\n    \"operation\": {\r\n        \"type\": \"Withdrawal\",\r\n        \"amount\": 1200.00\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts/operations",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"operations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post do operation with error: allowed day for operations does not match current day of the month",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"61dd176f99666502e3b20638\",\r\n    \"operation\": {\r\n        \"type\": \"Deposit\",\r\n        \"amount\": 200.00\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts/operations",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"operations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post do operation with error: maximum number of operations reached",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"61dd17df99666502e3b20639\",\r\n    \"operation\": {\r\n        \"type\": \"Deposit\",\r\n        \"amount\": 320.00\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts/operations",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"operations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post do operation with error: account not found",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"any-not-existing-id\",\r\n    \"operation\": {\r\n        \"type\": \"Deposit\",\r\n        \"amount\": 200.00\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts/operations",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"operations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put reset done operations in the month without errors",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts/61dd17df99666502e3b20639/reset-operations-number",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"61dd17df99666502e3b20639",
+						"reset-operations-number"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put reset done operations in the month with errors: account not found",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts/any-not-existing-account/reset-operations-number",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"any-not-existing-account",
+						"reset-operations-number"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get operations by account id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/api/v1/accounts/61dce88199666502e3b20636/operations",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"61dce88199666502e3b20636",
+						"operations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get balances by customer id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/api/v1/customers/61dcc8b9ffb2e3495cb42614/accounts/balance",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"61dcc8b9ffb2e3495cb42614",
+						"accounts",
+						"balance"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
