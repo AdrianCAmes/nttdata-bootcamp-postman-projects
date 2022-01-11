@@ -1,0 +1,307 @@
+{
+	"info": {
+		"_postman_id": "b5a7a12e-5bc5-4dea-97fd-de834c0ab521",
+		"name": "customer-info-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post new personal customer without error",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"Personal\",\r\n    \"status\": \"Active\",\r\n    \"personDetails\": {\r\n        \"name\": \"Luis\",\r\n        \"lastname\": \"Mendoza\",\r\n        \"identityNumber\": \"74145236\",\r\n        \"address\": {\r\n            \"number\": 144,\r\n            \"street\": \"Av. Ricardo Palma\",\r\n            \"city\": \"Cuzco\",\r\n            \"country\": \"Peru\"\r\n        },\r\n        \"email\": \"luis.mendoza@gmail.com\",\r\n        \"phoneNumber\": \"965874125\",\r\n        \"mobileNumber\": \"5478504\",\r\n        \"birthdate\": \"1998-10-30\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post new personal customer with error: duplicated identityNumber field",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"Personal\",\r\n    \"status\": \"Active\",\r\n    \"personDetails\": {\r\n        \"name\": \"Jorge\",\r\n        \"lastname\": \"Valdivia\",\r\n        \"identityNumber\": \"74145236\",\r\n        \"address\": {\r\n            \"number\": 45,\r\n            \"street\": \"Av. Rogelio Diaz\",\r\n            \"city\": \"Huanuco\",\r\n            \"country\": \"Peru\"\r\n        },\r\n        \"email\": \"jorge.valdivia@gmail.com\",\r\n        \"phoneNumber\": \"956477415\",\r\n        \"mobileNumber\": \"5774123\",\r\n        \"birthdate\": \"1993-05-16\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post new business customer without error",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"type\": \"Business\",\r\n        \"status\": \"Active\",\r\n        \"businessDetails\": {\r\n            \"name\": \"Ficticios SAC\",\r\n            \"ruc\": \"20874563347\",\r\n            \"address\": {\r\n                \"number\": 10,\r\n                \"street\": \"Jr. Comercio\",\r\n                \"city\": \"Lima\",\r\n                \"country\": \"Peru\"\r\n            },\r\n            \"representatives\": [\r\n                {\r\n                    \"name\": \"Maria\",\r\n                    \"lastname\": \"Alvarado\",\r\n                    \"identityNumber\": \"45548966\",\r\n                    \"address\": {\r\n                        \"number\": 123,\r\n                        \"street\": \"Camino Real\",\r\n                        \"city\": \"Lima\",\r\n                        \"country\": \"Peru\"\r\n                    },\r\n                    \"email\": \"maria.alvarez@gmail.com\",\r\n                    \"phoneNumber\": \"985215632\",\r\n                    \"mobileNumber\": \"5881440\",\r\n                    \"birthdate\": \"1980-01-05T00:00:00.000+00:00\"\r\n                },\r\n                {\r\n                    \"name\": \"Federico\",\r\n                    \"lastname\": \"Torres\",\r\n                    \"identityNumber\": \"65552154\",\r\n                    \"address\": {\r\n                        \"number\": 855,\r\n                        \"street\": \"Jr. Puno\",\r\n                        \"city\": \"Lima\",\r\n                        \"country\": \"Peru\"\r\n                    },\r\n                    \"email\": \"federico.torres@gmail.com\",\r\n                    \"phoneNumber\": \"963210455\",\r\n                    \"mobileNumber\": \"5442144\",\r\n                    \"birthdate\": \"1978-05-20T00:00:00.000+00:00\"\r\n                }\r\n            ]\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post new business customer with error: duplicated name field",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"type\": \"Business\",\r\n        \"status\": \"Active\",\r\n        \"businessDetails\": {\r\n            \"name\": \"Ficticios SAC\",\r\n            \"ruc\": \"58841236112\",\r\n            \"address\": {\r\n                \"number\": 881,\r\n                \"street\": \"Jr. Puno\",\r\n                \"city\": \"Lima\",\r\n                \"country\": \"Peru\"\r\n            },\r\n            \"representatives\": [\r\n                {\r\n                    \"name\": \"Maria\",\r\n                    \"lastname\": \"Alvarado\",\r\n                    \"identityNumber\": \"45548966\",\r\n                    \"address\": {\r\n                        \"number\": 123,\r\n                        \"street\": \"Camino Real\",\r\n                        \"city\": \"Lima\",\r\n                        \"country\": \"Peru\"\r\n                    },\r\n                    \"email\": \"maria.alvarez@gmail.com\",\r\n                    \"phoneNumber\": \"985215632\",\r\n                    \"mobileNumber\": \"5881440\",\r\n                    \"birthdate\": \"1980-01-05T00:00:00.000+00:00\"\r\n                },\r\n                {\r\n                    \"name\": \"Federico\",\r\n                    \"lastname\": \"Torres\",\r\n                    \"identityNumber\": \"65552154\",\r\n                    \"address\": {\r\n                        \"number\": 855,\r\n                        \"street\": \"Jr. Puno\",\r\n                        \"city\": \"Lima\",\r\n                        \"country\": \"Peru\"\r\n                    },\r\n                    \"email\": \"federico.torres@gmail.com\",\r\n                    \"phoneNumber\": \"963210455\",\r\n                    \"mobileNumber\": \"5442144\",\r\n                    \"birthdate\": \"1978-05-20T00:00:00.000+00:00\"\r\n                }\r\n            ]\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post new business customer with error: duplicated ruc field",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"type\": \"Business\",\r\n        \"status\": \"Active\",\r\n        \"businessDetails\": {\r\n            \"name\": \"Empresa SAC\",\r\n            \"ruc\": \"20874563347\",\r\n            \"address\": {\r\n                \"number\": 881,\r\n                \"street\": \"Jr. Puno\",\r\n                \"city\": \"Lima\",\r\n                \"country\": \"Peru\"\r\n            },\r\n            \"representatives\": [\r\n                {\r\n                    \"name\": \"Maria\",\r\n                    \"lastname\": \"Alvarado\",\r\n                    \"identityNumber\": \"45548966\",\r\n                    \"address\": {\r\n                        \"number\": 123,\r\n                        \"street\": \"Camino Real\",\r\n                        \"city\": \"Lima\",\r\n                        \"country\": \"Peru\"\r\n                    },\r\n                    \"email\": \"maria.alvarez@gmail.com\",\r\n                    \"phoneNumber\": \"985215632\",\r\n                    \"mobileNumber\": \"5881440\",\r\n                    \"birthdate\": \"1980-01-05T00:00:00.000+00:00\"\r\n                },\r\n                {\r\n                    \"name\": \"Federico\",\r\n                    \"lastname\": \"Torres\",\r\n                    \"identityNumber\": \"65552154\",\r\n                    \"address\": {\r\n                        \"number\": 855,\r\n                        \"street\": \"Jr. Puno\",\r\n                        \"city\": \"Lima\",\r\n                        \"country\": \"Peru\"\r\n                    },\r\n                    \"email\": \"federico.torres@gmail.com\",\r\n                    \"phoneNumber\": \"963210455\",\r\n                    \"mobileNumber\": \"5442144\",\r\n                    \"birthdate\": \"1978-05-20T00:00:00.000+00:00\"\r\n                }\r\n            ]\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all customers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get customer by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/v1/customers/61dcc8b9ffb2e3495cb42614",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"61dcc8b9ffb2e3495cb42614"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put customer without error",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"61dcc8b9ffb2e3495cb42614\",\r\n    \"type\": \"Business\",\r\n    \"status\": \"Active\",\r\n    \"businessDetails\": {\r\n        \"name\": \"Ficticios SAC\",\r\n        \"ruc\": \"20874563347\",\r\n        \"address\": {\r\n            \"number\": 10,\r\n            \"street\": \"Jr. Comercio\",\r\n            \"city\": \"Lima\",\r\n            \"country\": \"Peru\"\r\n        },\r\n        \"representatives\": [\r\n            {\r\n                \"name\": \"Maria\",\r\n                \"lastname\": \"Alvarado\",\r\n                \"identityNumber\": \"45548966\",\r\n                \"address\": {\r\n                    \"number\": 123,\r\n                    \"street\": \"Camino Real\",\r\n                    \"city\": \"Lima\",\r\n                    \"country\": \"Peru\"\r\n                },\r\n                \"email\": \"maria.alvarez@gmail.com\",\r\n                \"phoneNumber\": \"985215632\",\r\n                \"mobileNumber\": \"5881440\",\r\n                \"birthdate\": \"1980-01-05T00:00:00.000+00:00\"\r\n            },\r\n            {\r\n                \"name\": \"Federico\",\r\n                \"lastname\": \"Torres\",\r\n                \"identityNumber\": \"65552154\",\r\n                \"address\": {\r\n                    \"number\": 855,\r\n                    \"street\": \"Jr. Puno\",\r\n                    \"city\": \"Lima\",\r\n                    \"country\": \"Peru\"\r\n                },\r\n                \"email\": \"federico.torres@gmail.com\",\r\n                \"phoneNumber\": \"963210455\",\r\n                \"mobileNumber\": \"5442144\",\r\n                \"birthdate\": \"1978-05-20T00:00:00.000+00:00\"\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put customer with error: customer not found",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"any-not-existing-id\",\r\n    \"type\": \"Business\",\r\n    \"status\": \"Blocked\",\r\n    \"businessDetails\": {\r\n        \"name\": \"Empresa SAC\",\r\n        \"ruc\": \"20874563347\",\r\n        \"address\": {\r\n            \"number\": 10,\r\n            \"street\": \"Jr. Comercio\",\r\n            \"city\": \"Lima\",\r\n            \"country\": \"Peru\"\r\n        },\r\n        \"representatives\": [\r\n            {\r\n                \"name\": \"Maria\",\r\n                \"lastname\": \"Alvarado\",\r\n                \"identityNumber\": \"45548966\",\r\n                \"address\": {\r\n                    \"number\": 123,\r\n                    \"street\": \"Camino Real\",\r\n                    \"city\": \"Lima\",\r\n                    \"country\": \"Peru\"\r\n                },\r\n                \"email\": \"maria.alvarez@gmail.com\",\r\n                \"phoneNumber\": \"985215632\",\r\n                \"mobileNumber\": \"5881440\",\r\n                \"birthdate\": \"1980-01-05T00:00:00.000+00:00\"\r\n            },\r\n            {\r\n                \"name\": \"Federico\",\r\n                \"lastname\": \"Torres\",\r\n                \"identityNumber\": \"65552154\",\r\n                \"address\": {\r\n                    \"number\": 855,\r\n                    \"street\": \"Jr. Puno\",\r\n                    \"city\": \"Lima\",\r\n                    \"country\": \"Peru\"\r\n                },\r\n                \"email\": \"federico.torres@gmail.com\",\r\n                \"phoneNumber\": \"963210455\",\r\n                \"mobileNumber\": \"5442144\",\r\n                \"birthdate\": \"1978-05-20T00:00:00.000+00:00\"\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete customer without error",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/v1/customers/61dcdad8ffb2e3495cb42615",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"61dcdad8ffb2e3495cb42615"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete customer with error: customer not found",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/v1/customers/any-not-existing-id",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"any-not-existing-id"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
